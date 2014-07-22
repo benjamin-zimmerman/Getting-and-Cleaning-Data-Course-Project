@@ -1,3 +1,20 @@
+The UCIHAR Dataset is the described as following from [1]:
+
+
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
+
+For more details, a readme.txt file can be downloaded from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip as well as all the raw data used.
+
+The analysis script (run_analysis.R) downloads and unzips the necessary files for you, so if you already have the files, only run the second part of the script.
+
+The data is originally randomly separated into training (70% of the data) and test sets (30% of the data).
+The Test and Train datasets are merged into a single data table of (observations) x (variables). Then the script extracts only measurements on the mean and standard deviation by searching for mean or std in the variable titles, and using the indices to choose the variable columns in the new dataset. The script labels all of the activity IDs using a key provided in the zip files in "activity_labels.txt". The script also applies the variable labels from "features.txt" (also provided in the zip file) to rename the variables descriptively. Finally, the script produces an additional dataset where only the means of each variable for each subject and each activity level are included. This reduced dataset is called "tidy_data.csv" and is included in the repo.
+
+
+
+ [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+
+
